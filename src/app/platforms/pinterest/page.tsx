@@ -24,12 +24,12 @@ export default function PinterestPage() {
 
   const features = [
     {
-                  <Link href="https://terms.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
-                    Terms & Conditions
-                  </Link>
-                  <Link href="https://privacy-policy.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
-                    Privacy Policy
-                  </Link>
+      title: 'Pin Design',
+      description: 'Create eye-catching pins that capture attention and drive traffic to your site.',
+      icon: '🎨',
+    },
+    {
+      title: 'Board Management',
       description: 'Organize and optimize your boards for discoverability and engagement using AI insights.',
       icon: '📋',
     },
@@ -380,12 +380,12 @@ export default function PinterestPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#terms" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
+                  <Link href="https://terms.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="#privacy" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
+                  <Link href="https://privacy-policy.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
                     Privacy Policy
                   </Link>
                 </li>
