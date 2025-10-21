@@ -416,8 +416,8 @@ export default function LinkedInPage() {
               <h3 className="text-orange-400 font-bold text-lg mb-4">Help</h3>
               <ul className="space-y-2">
                 <li><Link href="#support" className="text-white hover:text-orange-400 transition-colors">Customer Support</Link></li>
-                <li><Link href="#terms" className="text-white hover:text-orange-400 transition-colors">Terms & Conditions</Link></li>
-                <li><Link href="#privacy" className="text-white hover:text-orange-400 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="https://terms.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors">Terms & Conditions</Link></li>
+                <li><Link href="https://privacy-policy.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/contact" className="text-white hover:text-orange-400 transition-colors">Contact Us</Link></li>
               </ul>
             </div>

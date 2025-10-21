@@ -181,11 +181,11 @@ export default function SignUp() {
               />
               <label htmlFor="terms" className="ml-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
                 I agree to the{' '}
-                <Link href="#" className="text-orange-400 hover:text-orange-300 transition-colors">
+                <Link href="https://terms.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 transition-colors">
                   Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link href="#" className="text-orange-400 hover:text-orange-300 transition-colors">
+                <Link href="https://privacy-policy.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 transition-colors">
                   Privacy Policy
                 </Link>
               </label>

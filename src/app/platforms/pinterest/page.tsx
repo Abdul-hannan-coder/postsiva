@@ -24,12 +24,12 @@ export default function PinterestPage() {
 
   const features = [
     {
-      title: 'Visual Pin Creation',
-      description: 'Design and publish eye-catching pins with AI-generated titles, descriptions, and keywords.',
-      icon: '📌',
-    },
-    {
-      title: 'Board Optimization',
+                  <Link href="https://terms.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
+                    Terms & Conditions
+                  </Link>
+                  <Link href="https://privacy-policy.postsiva.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-400 transition-colors text-xs sm:text-sm">
+                    Privacy Policy
+                  </Link>
       description: 'Organize and optimize your boards for discoverability and engagement using AI insights.',
       icon: '📋',
     },
