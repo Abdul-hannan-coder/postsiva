@@ -4,16 +4,28 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from '@/lib/hooks/auth/AuthContext';
+import usePinterestAuth from '@/lib/hooks/auth/platforms/pinterest/usePinterestAuth';
 import AuthGuard from '@/lib/hooks/auth/AuthGuard';
 
 export default function Dashboard() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  const { logout } = useAuthContext();
+  const { logout, isAuthenticated } = useAuthContext();
+  const { isLoading: isPinterestLoading, error: pinterestError, initiatePinterestConnect } = usePinterestAuth();
 
   const handleLogout = () => {
     const redirect = logout('/auth/signin');
     router.push(redirect);
+  };
+
+  const handlePinterestConnect = async () => {
+    if (!isAuthenticated) {
+      router.push('/auth/signin?next=/platforms/pinterest');
+      return;
+    }
+    try {
+      await initiatePinterestConnect();
+    } catch {}
   };
 
   const socialPlatforms = [
@@ -68,6 +80,15 @@ export default function Dashboard() {
       icon: '/twitter1.png',
       color: 'from-blue-400 to-blue-500',
       href: '/platforms/twitter',
+      stats: '450M+ users',
+      highlighted: false
+  },
+  {
+      name: 'Pinterest',
+      description: 'Visual discovery and inspiration sharing',
+      icon: '/pinterest.png',
+      color: 'from-red-500 to-red-600',
+      href: '/platforms/pinterest',
       stats: '450M+ users',
       highlighted: false
     }
@@ -360,6 +381,13 @@ export default function Dashboard() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
+                  <button
+                    onClick={handlePinterestConnect}
+                    disabled={isPinterestLoading}
+                    className="inline-flex items-center border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isPinterestLoading ? 'Connecting Pinterest...' : 'Connect Pinterest'}
+                  </button>
                   <Link 
                     href="#help" 
                     className="inline-flex items-center border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white hover:text-black transition-all duration-300"
@@ -367,6 +395,9 @@ export default function Dashboard() {
                     Need Help?
                   </Link>
                 </div>
+                {pinterestError && (
+                  <p className="text-red-400 text-sm mt-3">{pinterestError}</p>
+                )}
               </div>
             </div>
           </div>
